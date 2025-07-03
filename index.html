@@ -2,121 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MIRA — Metaphysical Interface for Ritual Art</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRA – Metaphysical Interface for Ritual Art</title>
   <style>
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: 'Helvetica Neue', sans-serif;
+      background-color: black;
+      color: white;
+      font-family: "Courier New", Courier, monospace;
       text-align: center;
-      padding: 50px 20px;
+      padding: 40px;
     }
+
     h1 {
       font-size: 3em;
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
+      margin-bottom: 0.2em;
     }
-    p { font-size: 1.2em; line-height: 1.5em; max-width: 700px; margin: 20px auto; }
+
+    p {
+      font-size: 1.2em;
+      margin: 1em auto;
+      max-width: 600px;
+    }
+
     button {
-      background-color: #fff; color: #000;
-      border: none; padding: 15px 30px;
-      font-size: 1em; margin-top: 20px;
-      cursor: pointer; transition: background-color 0.3s ease;
-    }
-    button:hover { background-color: #ccc; }
-    .result {
-      margin-top: 40px;
-      font-size: 1.4em;
-      color: #ffea00;
-    }
-    footer {
-      margin-top: 60px;
-      font-size: 0.95em;
-      color: #aaa;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6em;
-    }
-    hr { border: 0; height: 1px; background: #333; margin: 40px auto; width: 60%; }
-    .newsletter {
-      margin-top: 40px;
-    }
-    .newsletter input {
-      padding: 10px;
-      font-size: 1em;
-      width: 250px;
-      max-width: 80%;
+      font-size: 1.2em;
+      padding: 0.6em 1.2em;
+      margin: 1em;
+      background-color: white;
+      color: black;
       border: none;
-      margin-right: 10px;
-    }
-    .newsletter button {
-      padding: 10px 20px;
-      font-size: 1em;
       cursor: pointer;
     }
-    .donation-section {
-      margin-top: 40px;
+
+    #activation {
+      margin-top: 2em;
     }
-    .donation-section p {
-      margin: 10px 0;
+
+    img {
+      margin-top: 20px;
+      max-width: 80%;
+      height: auto;
+      border: 1px solid white;
+    }
+
+    footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    input, label {
+      font-family: "Courier New", Courier, monospace;
+      display: block;
+      margin: 0.5em auto;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+
+    form {
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
+
   <h1>MIRA</h1>
-  <p>You have entered the void of multiple possibilities.<br>
-     Breathe. Stay present. Hold a clear intention in your heart.<br>
-     When you feel ready, click once.<br><br>
-     A symbolic activation will appear.<br>
-     One click is enough. Trust the portal.
-  </p>
+  <p>You have entered the void of multiple possibilities.</p>
+  <p>Breathe. Stay present. Hold a clear intention in heart and mind.</p>
+  <p>When you feel ready, click once.</p>
+  <p>A symbolic activation will appear. One click is enough. Trust the portal.</p>
 
-  <button onclick="generate()">Receive Activation</button>
+  <button onclick="generateActivation()">Receive Activation</button>
 
-  <div class="result" id="activation"></div>
-
-  <div class="newsletter">
-    <p>Join Mira and receive updates and future activations:</p>
-    <form action=https://formspree.io/f/mnnvrooj method="POST">
-      <input type="email" name="_replyto" placeholder="Your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
+  <div id="activation"></div>
 
   <hr>
 
+  <p>This project is part of the first activation of MIRA – Metaphysical Interface for Ritual Art.<br>
+    A conceptual artwork and metaphysical interface designed to offer symbolic rituals through the digital void.<br>
+    Created by artist D’Anunziata, this space initiates a conversation between art, spirituality and expanded perception.</p>
+
+  <p>Feel free to print and ritualize.</p>
+
+  <p>If you'd like to support this project from outside Brazil:<br>
+    <a href="https://ko-fi.com/supportmira" target="_blank" style="color:white;">Donate via Ko-fi (PayPal)</a>
+  </p>
+
+  <p>Se você está no Brasil, apoie via Pix:<br>
+    <strong>danunziata@me.com</strong>
+  </p>
+
+  <hr>
+
+  <form action="https://formspree.io/f/mnnvrooj" method="POST">
+    <p>Subscribe to receive future activations and updates:</p>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+
   <footer>
-    <p>This project is part of the first activation of <strong>MIRA</strong> — <em>Metaphysical Interface for Ritual Art</em>.<br>
-       A conceptual artwork and metaphysical interface designed to offer symbolic rituals through the digital void.<br><br>
-       Created by artist <strong>D’Anunziata</strong>, this space initiates a conversation between art, spirituality, and expanded perception.<br>
-       Feel free to print and ritualize.
-    </p>
-
-    <div class="donation-section">
-      <p><strong>Support this project:</strong></p>
-
-      <p>🇧🇷 <strong>PIX:</strong> danunziata@me.com</p>
-
-      <p>🌍 <strong><a href="https://ko-fi.com/seupage" target="_blank" style="color:#aaa;">Ko‑fi (for international donations)</a></strong></p>
-    </div>
-
-    <p>© 2025 – MIRA</p>
+    <p>&copy; 2025 MIRA. All rights reserved.</p>
   </footer>
 
   <script>
-    const messages = [ /* suas 108 frases aqui */ ];
-    let clickCount = 0;
+    const texts = [
+      "Invent a word and use it today as a spell.",
+      "Stand still for one minute and listen to the quietest sound.",
+      "Pick up the first object to your left. It has a message.",
+      "Imagine a bridge made of light. Cross it with your mind.",
+      "Take 40 sips of water while gazing at the sky.",
+      "Open the nearest book to page 33 and read it aloud.",
+      "Draw a circle in the air and step through it.",
+      "Walk outside and find something round. It knows you.",
+      "The answer is where no one thinks to look.",
+      "Close your eyes and name three colors you feel."
+    ];
 
-    function generate() {
-      clickCount++;
-      if (clickCount > 2) {
-        document.getElementById('activation').innerText = "One click is enough. Trust the portal.";
+    let activationShown = 0;
+
+    function generateActivation() {
+      const activationDiv = document.getElementById('activation');
+
+      if (activationShown >= 1) {
+        activationDiv.innerHTML = "<p><em>Only one activation per visit is recommended. Trust the portal.</em></p>";
         return;
       }
-      const idx = Math.floor(Math.random() * messages.length);
-      const sel = messages[idx];
-      document.getElementById('activation').innerText = sel;
+
+      const randomText = texts[Math.floor(Math.random() * texts.length)];
+      const imageNumber = Math.floor(Math.random() * 33) + 1;
+      const imageUrl = `imagens/mira_${imageNumber}.jpg`;
+
+      activationDiv.innerHTML = `
+        <p><strong>${randomText}</strong></p>
+        <img src="${imageUrl}" alt="MIRA Activation Image">
+      `;
+
+      activationShown++;
     }
   </script>
+
 </body>
 </html>
