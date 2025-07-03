@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MIRA</title>
+  <title>MIRA — Metaphysical Interface for Ritual Art</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>MIRA</h1>
-    <p>✦ Clique abaixo para receber sua ativação metafísica ✦</p>
-    <button onclick="gerarMensagem()">RECEBER RITUAL</button>
-    <p id="mensagem"></p>
+
+    <!-- manual / instrução -->
+    <p class="intro">
+      You have entered the <em>void of multiple possibilities</em>.<br>
+      Breathe. Hold a clear intention in mind.<br>
+      When you feel ready, click once.<br>
+      A symbolic activation (image + text) will appear.<br>
+      <strong>One click is enough — trust the portal.</strong>
+    </p>
+
+    <button onclick="gerarMensagem()">RECEIVE ACTIVATION</button>
+
+    <!-- imagem + texto -->
+    <div id="output">
+      <img id="imagem" src="" alt="" style="display:none;">
+      <p id="mensagem"></p>
+    </div>
+
+    <!-- doação -->
+    <p class="donate">
+      If this activation served you, consider a symbolic donation:<br>
+      <strong>PIX key:</strong> danunziata@me.com
+    </p>
+
+    <!-- créditos leves -->
+    <p class="credit">
+      Images generated weekly by artist <strong>Danunziata</strong>.  
+      Feel free to print / keep.  
+      © 2025 — MIRA.
+    </p>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
-Create index.html
