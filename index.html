@@ -3,53 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <title>MIRA — Metaphysical Interface for Ritual Art</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.5em;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    button {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ccc;
+    }
+
+    .result {
+      margin-top: 40px;
+      font-size: 1.4em;
+      color: #ffea00;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 0.85em;
+      color: #aaa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #333;
+      margin: 40px auto;
+      width: 60%;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>MIRA</h1>
+  <h1>MIRA</h1>
+  <p>
+    You have entered the void of multiple possibilities.<br>
+    Breathe. Stay present. Hold a clear intention in your heart.<br>
+    When you feel ready, click once.<br><br>
+    A symbolic activation — image and text — will appear.<br>
+    One click is enough. Trust the portal.
+  </p>
 
-    <!-- manual / instrução -->
-    <p>
-  You have entered the void of multiple possibilities.<br>
-  Breathe. Stay present.<br>
-  Hold a clear intention in mind and heart.<br><br>
-  When you feel ready, click once.<br>
-  A symbolic activation — image and text — will appear.<br>
-  One click is enough. Trust the portal.
-</p>
+  <button onclick="generate()">Receive Activation</button>
 
-    <button onclick="gerarMensagem()">RECEIVE ACTIVATION</button>
+  <div class="result" id="activation"></div>
 
-    <!-- imagem + texto -->
-    <div id="output">
-      <img id="imagem" src="" alt="" style="display:none;">
-      <p id="mensagem"></p>
-    </div>
+  <hr>
 
-    <!-- doação -->
+  <footer>
+    <p>This project is part of the first activation of <strong>MIRA</strong> — <em>Metaphysical Interface for Ritual Art</em>.</p>
+    <p>A conceptual artwork and metaphysical interface designed to offer symbolic rituals through the digital void.</p>
+    <p>Created by artist <strong>D’Anunziata</strong>, this space initiates a conversation between art, spirituality, and expanded perception.</p>
+    <p>New images are generated monthly. Feel free to print and ritualize.</p>
+    <p>© 2025 – MIRA</p>
     <hr>
-<p style="font-size: 0.9em; color: gray; text-align: center;">
-  ✨ If this activation inspired you, feel free to support the project via symbolic donation.<br>
-  <strong>Pix key:</strong> danunziata@me.com
-</p>
-
-    <!-- créditos leves -->
-    <p class="credit">
-      Images generated weekly by artist <strong>Danunziata</strong>.  
-      Feel free to print / keep.  
-      © 2025 — MIRA.
+    <p>If this activation inspired you, you can support this portal with a symbolic donation:<br>
+      <strong>Pix:</strong> seuemail@exemplo.com
     </p>
-  </div>
-  <script src="script.js"></script>
-<hr>
-<p style="font-size: 0.85em; color: #666; text-align: center; max-width: 600px; margin: auto;">
-  This project is part of the first activation of MIRA — <br>
-  <strong>Metaphysical Interface for Ritual Art</strong>.<br><br>
-  A conceptual artwork and metaphysical interface designed to offer symbolic rituals through the digital void.<br><br>
-  Created by artist <strong>D’Anunziata</strong>, this space initiates a conversation between art, spirituality, and expanded perception.<br><br>
-  New images are generated monthly. Feel free to print and ritualize.<br>
-  © 2025 – MIRA
-</p></body>
+  </footer>
+
+  <script>
+    const messages = [
+      "Invent a word and use it today as a spell.",
+      "Imagine a bridge made of light and walk across it in your mind.",
+      "Take 3 steps backwards and say your name out loud.",
+      "Touch something cold and say thank you.",
+      "Draw a circle on a piece of paper and place it under your pillow.",
+      "Look at your reflection and blink slowly three times.",
+      "Place your hands on your heart and whisper your intention.",
+      "Find something round and carry it with you today.",
+      "Turn off your phone for 11 minutes.",
+      "Read a page from a book you've never opened.",
+      "Close your eyes and trace a triangle in the air.",
+      "Say a sentence backward in your mind.",
+      "Observe the wind — it's carrying a message.",
+      "Drink water and imagine it lighting up your body.",
+      "Repeat a single word 7 times in a row, then let it go.",
+      "Hold a stone and imagine it dissolving your doubts.",
+      "Dance for 33 seconds without music.",
+      "Look for the color yellow today.",
+      "Write something with your non-dominant hand.",
+      "Step outside and name three invisible things.",
+      "Open a drawer and interpret its contents as a dream.",
+      "Speak to a plant as if it were your guide.",
+      "Touch your feet and thank them for the journey.",
+      "Imagine a symbol and draw it with your eyes closed.",
+      "Breathe in the name of someone who inspires you.",
+      "Clap once. What just ended?",
+      "Trace a portal on the floor with your finger.",
+      "Say a secret to a mirror.",
+      "Invent a gesture that means freedom — do it now.",
+      "Say: 'I accept the message of the unknown.'",
+      "Use your shadow as an oracle.",
+      "Feel the next object you touch as if it were sacred.",
+      "Listen for the sound behind the sound."
+    ];
+
+    function generate() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      const selected = messages[randomIndex];
+      document.getElementById('activation').innerText = selected;
+    }
+  </script>
+</body>
 </html>
-Atualizações de texto e layout
